@@ -10,7 +10,7 @@ export const Navbar = styled.div<NavbarProps>`
   height: 60px;
   position: relative;
   z-index: 10;
-  background-color: ${appTheme.colors.background};
+  /* background-color: ${appTheme.colors.background}; */
 `;
 
 export const BackButton = styled.button`

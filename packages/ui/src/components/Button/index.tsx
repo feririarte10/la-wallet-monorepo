@@ -5,7 +5,7 @@ import { BaseButton } from './style';
 import { BtnLoader } from '../Loader/Loader';
 import { useTheme } from 'styled-components';
 
-export const Button: FC<ButtonProps> = ({
+export const Button = ({
   children,
   color = 'primary',
   variant = 'filled',
@@ -14,7 +14,7 @@ export const Button: FC<ButtonProps> = ({
   disabled = false,
   explicitLoader = <BtnLoader />,
   ...props
-}): JSX.Element => {
+}: ButtonProps): JSX.Element => {
   const theme = useTheme();
   let backgroundColor: string = 'transparent';
   let textColor: string = theme.colors.text;

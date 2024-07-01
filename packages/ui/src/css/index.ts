@@ -42,6 +42,13 @@ const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
+  button {
+    background-color: inherit;
+    border: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+
   a, 
   button {
     font-family: ${(props) => props.theme.font.secondary};

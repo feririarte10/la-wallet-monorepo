@@ -5,7 +5,6 @@ import { SatoshiV2Icon } from '@bitcoin-design/bitcoin-icons-react/filled';
 import Navbar from '@/components/Layout/Navbar';
 import { Confetti } from '@/components/UI';
 import { useRouter } from '@/navigation';
-import { extractFirstTwoChars } from '@/utils';
 import { formatAddress, splitHandle, useCurrencyConverter, useFormatter, useSettings } from '@lawallet/react';
 import { AvailableLanguages, TransferInformation, TransferTypes } from '@lawallet/react/types';
 import { Avatar, Container, Divider, Flex, Heading, Icon, LinkButton, Text } from '@lawallet/ui';
@@ -45,9 +44,7 @@ export const FinishTransfer = ({ transferInfo }: { transferInfo: TransferInforma
         <Text size="small">{transferInfo.type === TransferTypes.LNURLW ? t('SUCCESS_CLAIM') : t('TRANSFER_TO')}</Text>
         <Divider y={24} />
         <Flex align="center" gap={8}>
-          <Avatar size="large">
-            <Text size="small">{extractFirstTwoChars(transferUsername)}</Text>
-          </Avatar>
+          <Avatar size={8} alt={transferUsername} />
           {transferInfo.type === TransferTypes.LNURLW || transferInfo.type === TransferTypes.INVOICE ? (
             <Text>{formatAddress(transferInfo.data, 25)}</Text>
           ) : (

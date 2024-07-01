@@ -28,13 +28,10 @@ import { appTheme } from '@/config/exports';
 
 // Hooks and utils
 import { Link, useRouter } from '@/navigation';
-import { extractFirstTwoChars } from '@/utils';
-import { copy } from '@/utils/share';
 
 // Components
 import Animations from '@/components/Animations';
 import BitcoinTrade from '@/components/Animations/bitcoin-trade.json';
-import Subnavbar from '@/components/Layout/Subnavbar';
 import {
   formatToPreference,
   useBalance,
@@ -47,12 +44,16 @@ import {
 
 // Constans
 import { CACHE_BACKUP_KEY, EMERGENCY_LOCK_DEPOSIT, EMERGENCY_LOCK_TRANSFER } from '@/utils/constants';
+import { useTheme } from 'styled-components';
+import Subnavbar from '@/components/Layout/Subnavbar';
 
 export default function Page() {
   const config = useConfig();
   const router = useRouter();
   const t = useTranslations();
   const lng = useLocale();
+  const theme = useTheme();
+
   const [showBanner, setShowBanner] = useState<'backup' | 'none'>('none');
 
   const identity = useIdentity();
@@ -89,21 +90,21 @@ export default function Page() {
       <HeroCard>
         <Navbar>
           <Flex align="center" gap={8}>
-            <Avatar>
-              <Text size="small">{identity.username ? extractFirstTwoChars(identity.username) : 'AN'}</Text>
-            </Avatar>
-            <Flex direction="column">
-              <Text size="small" color={appTheme.colors.gray50}>
-                {t('HELLO')},
-              </Text>
-              <Flex
-                onClick={() => {
-                  if (identity.lud16) copy(identity.lud16);
-                }}
-              >
-                <Text>{loading ? '--' : identity.lud16 ? identity.lud16 : t('ANONYMOUS')}</Text>
-              </Flex>
-            </Flex>
+            <div>
+              <Button variant="bezeled" size="small" onClick={() => router.push('/p')}>
+                <Avatar
+                  size={8}
+                  src="https://cdn.discordapp.com/avatars/485320853786198020/51e5cf8708a462e03c18e68b19239c4d.webp?size=240"
+                  alt={identity.lud16}
+                />
+                <Flex direction="column">
+                  <Text size="small">Jona</Text>
+                  <Text size="small" color={theme.colors.text}>
+                    dios@lawallet.ar
+                  </Text>
+                </Flex>
+              </Button>
+            </div>
           </Flex>
           <Flex gap={4} justify="end">
             <Button variant="bezeled" size="small" onClick={toggleHideBalance}>

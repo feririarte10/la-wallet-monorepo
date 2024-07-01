@@ -14,6 +14,7 @@ export function Flex(props: FlexProps): JSX.Element {
       $customGap={`${gap}px`}
       $customJustify={justify}
       onClick={onClick}
+      {...props}
     >
       {children}
     </FlexPrimitive>

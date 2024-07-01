@@ -6,8 +6,6 @@ import { Avatar, Card, Flex, Text, Button } from '@lawallet/ui';
 
 import { useTranslations } from 'next-intl';
 
-import { extractFirstTwoChars } from '@/utils';
-
 const CardWithData = ({ type, data }: { type: TransferTypes; data: string }) => {
   const router = useRouter();
   const t = useTranslations();
@@ -20,9 +18,7 @@ const CardWithData = ({ type, data }: { type: TransferTypes; data: string }) => 
         {type === TransferTypes.LNURLW ? (
           <Text size="small">{t('CLAIM_THIS_INVOICE')}</Text>
         ) : (
-          <Avatar size="large">
-            <Text size="small">{extractFirstTwoChars(transferUsername)}</Text>
-          </Avatar>
+          <Avatar size={8} alt={transferUsername} />
         )}
         {type === TransferTypes.INVOICE || type === TransferTypes.LNURLW ? (
           <Text>{formatAddress(data, 15)}</Text>

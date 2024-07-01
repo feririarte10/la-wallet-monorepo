@@ -6,7 +6,7 @@ interface ConfettiProps {}
 
 export const Confetti = styled.div<ConfettiProps>`
   position: absolute;
-  top: -100px;
+  bottom: 0;
   left: 0;
   z-index: -1;
   overflow-x: hidden;

@@ -121,7 +121,7 @@ export const SelectTransferAmount = ({ transferInfo, setAmountToPay, setComment 
 
   useActionOnKeypress('Enter', handleClick, [numpadData, transferInfo]);
 
-  const { formatAmount, customFormat } = useFormatter({ currency: userCurrency, locale: lng as AvailableLanguages });
+  const { formatAmount } = useFormatter({ currency: userCurrency, locale: lng as AvailableLanguages });
 
   return (
     <>
@@ -142,16 +142,16 @@ export const SelectTransferAmount = ({ transferInfo, setAmountToPay, setComment 
 
           {!hideBalance && (
             <Flex justify="center" align="center" gap={4}>
-              <Heading as="h6" color={appTheme.colors.gray50}>
+              <Text color={appTheme.colors.gray50}>
                 {userCurrency !== 'SAT' && '$'}
                 {formatAmount(maxAvailableAmount)} {t('AVAILABLE')}.
-              </Heading>
+              </Text>
             </Flex>
           )}
 
           <TokenList />
 
-          {transferInfo.request && (
+          {/* {transferInfo.request && (
             <Flex justify="center">
               <Feedback show={true} status={'success'}>
                 {t('SENDABLE_AMOUNT', {
@@ -160,7 +160,7 @@ export const SelectTransferAmount = ({ transferInfo, setAmountToPay, setComment 
                 })}
               </Feedback>
             </Flex>
-          )}
+          )} */}
         </Flex>
 
         <Feedback show={errors.errorInfo.visible} status={'error'}>

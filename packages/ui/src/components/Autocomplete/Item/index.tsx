@@ -9,9 +9,7 @@ export function Item({ lud16 }: ItemProps) {
 
   return (
     <Flex align="center" gap={8}>
-      <Avatar>
-        <Text size="small">{username.substring(0, 2).toUpperCase()}</Text>
-      </Avatar>
+      <Avatar alt={username.substring(0, 2).toUpperCase()} />
       <Flex align="center">
         <Text>{username}</Text>
         <Text>@{domain}</Text>

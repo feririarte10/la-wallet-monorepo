@@ -20,6 +20,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 export interface InputPrimitiveProps {
   $isSuccess?: boolean;
   $showValidate?: boolean;
+  $background: string;
 }
 
 export interface FeedbackProps {

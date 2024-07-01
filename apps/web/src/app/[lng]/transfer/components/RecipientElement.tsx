@@ -6,9 +6,7 @@ const RecipientElement = ({ lud16 }: { lud16: string }) => {
   const [username, domain] = splitHandle(lud16);
   return (
     <Flex align="center" gap={8}>
-      <Avatar>
-        <Text size="small">{extractFirstTwoChars(username)}</Text>
-      </Avatar>
+      <Avatar alt={extractFirstTwoChars(username)} />
       <Flex align="center">
         <Text>{username}</Text>
         <Text>@{domain}</Text>

@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 
 export const Default = styled.div`
+  margin-top: -40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,8 +9,11 @@ export const Default = styled.div`
   margin-top: -12px;
 
   button {
-    width: 65px !important;
-    height: 65px !important;
+    position: relative;
+    top: 16px;
+
+    width: 64px !important;
+    height: 64px !important;
 
     svg {
       width: 32px !important;
